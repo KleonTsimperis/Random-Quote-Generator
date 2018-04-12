@@ -1,16 +1,15 @@
-var askTimes = prompt("How many quotes would you like to see?");
-var response = parseInt( askTimes,10);
+var firstFrag,secondFrag,thirdFrag, randomQuote;
 
 const totalArray1 = [
-  ['I want to','You want to', 'She wants to', 'He needs to', 'We can', 'They should'],
-  [' eat',' sleep',' shout', ' run', ' jump'],
-  [' on the table.',' in my bed.', ' in her room.', ' in the police station.', ' in the asylum.']
+  ['I want to','You want to', 'She wants to', 'He needs to'],
+  [' eat',' sleep',' shout', ' yawn', ' linger'],
+  [' on the table.',' in my bed.', ' in her room.', ' in the toilet.', ' in the bathroom.']
 ];
 
 const totalArray2 = [
-  [ 'We can', 'They should'],
-  [' eat',' sleep',' shout', ' run', ' jump'],
-  [' on the table.',' in my bed.', ' in her room.', ' in the police station.', ' in the asylum.']
+  ['We can', 'They should', 'We will', 'They must'],
+  [' hike',' swim',' climb', ' run', ' jump'],
+  [' on the track & field.',' in the basketball court.', ' on the field.', ' in the police station.', ' in the asylum.']
 ];
 
 const randomize = (x) => {
@@ -20,20 +19,36 @@ const randomize = (x) => {
           .slice(0,1);
 }
 
-const sumArray = [totalArray1, totalArray2];
-
-
-
+do{
+var askTimes = prompt("How many quotes would you like to see?");
+var response = parseInt(askTimes,10);
+var continueOrQuit = 0;
 
 if (response > 0 && response <6){
+  var selectArray = Math.floor(Math.random()*10);
   for(i=0; i<response; i++){
-    let firstFrag = randomize(totalArray1[0]);
-    let secondFrag = randomize(totalArray1[1]);
-    let thirdFrag = randomize(totalArray1[2]);
-    const randomQuote = firstFrag + secondFrag + thirdFrag;
-    console.log(randomQuote);
-  }
-} else {
-  prompt(" Please choose an integer value from 1 to 5 only!");
+      if (selectArray < 5){
+         firstFrag = randomize(totalArray1[0]);
+         secondFrag = randomize(totalArray1[1]);
+         thirdFrag = randomize(totalArray1[2]);
+         randomQuote = firstFrag + secondFrag + thirdFrag;
+        console.log(randomQuote);
+      } else {
+         firstFrag = randomize(totalArray2[0]);
+         secondFrag = randomize(totalArray2[1]);
+         thirdFrag = randomize(totalArray2[2]);
+         randomQuote = firstFrag + secondFrag + thirdFrag;
+        console.log(randomQuote);
+      } // else finish
+    }// for loop finish
+  } // if finish
 
-}
+var secondQuestion = prompt("Would  you like to continue? (Respond by Yes or No otherwise the program will terminate)");
+if (!secondQuestion.toLowerCase().includes("yes")){
+  continueOrQuit++;
+  }
+
+} // do finish
+
+while (continueOrQuit<1);
+alert("Thanks for participating");
