@@ -1,5 +1,6 @@
 var firstFrag,secondFrag,thirdFrag, randomQuote;
 
+
 const totalArray1 = [
   ['I want to','You want to', 'She wants to', 'He needs to'],
   [' eat',' sleep',' shout', ' yawn', ' linger'],
