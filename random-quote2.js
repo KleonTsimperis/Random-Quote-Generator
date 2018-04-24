@@ -42,6 +42,9 @@ if (response > 0 && response <6){
       } // else finish
     }// for loop finish
   } // if finish
+else{
+  alert("Reminder: You can see up to and including 5 quotes");
+}
 
 var secondQuestion = prompt("Would  you like to continue? (Respond by Yes or No otherwise the program will terminate)");
 if (!secondQuestion.toLowerCase().includes("yes")){
